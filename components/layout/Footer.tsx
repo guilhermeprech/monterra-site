@@ -22,9 +22,9 @@ export default function Footer() {
               <a className="text-black/70 hover:text-black" href={SITE.instagram}>
                 Instagram
               </a>
-              <a className="text-black/70 hover:text-black" href={`mailto:${SITE.email}`}>
+              {/* <a className="text-black/70 hover:text-black" href={`mailto:${SITE.email}`}>
                 {SITE.email}
-              </a>
+              </a> */}
             </div>
           </div>
 

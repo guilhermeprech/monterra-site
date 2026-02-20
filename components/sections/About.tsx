@@ -25,11 +25,11 @@ export default function About() {
               Hoje buscam manter a produção pequena, tentando respeitar a ordem natural das coisas, as estações, a terra e os animais.
               </p>
               <p className="mt-5 text-base leading-relaxed text-[var(--foreground)]/80">
-                Unimos tradição e técnica para entregar um produto artesanal, com sabor marcante e
-                qualidade consistente — do primeiro corte ao último pedaço.
+                Somos movidos pela paixão e pela crença de que o artesanal não é só um método, 
+                é um manifesto: o de criar sabores únicos e verdadeiros.
               </p>
 
-              <div className="mt-10 border-t border-[var(--green)]/20 pt-8">
+              {/* <div className="mt-10 border-t border-[var(--green)]/20 pt-8">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <p className="text-sm font-semibold text-[var(--foreground)]">
@@ -49,7 +49,7 @@ export default function About() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

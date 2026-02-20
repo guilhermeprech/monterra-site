@@ -7,9 +7,9 @@ export const SITE = {
   
   export const NAV = [
     { label: "História", href: "#historia" },
-    { label: "Processo", href: "#processo" },
+    // { label: "Processo", href: "#processo" },
     { label: "Queijos", href: "#queijos" },
-    { label: "Premiações", href: "#premiacoes" },
+    // { label: "Premiações", href: "#premiacoes" },
     { label: "Contato", href: "#contato" },
   ];
   

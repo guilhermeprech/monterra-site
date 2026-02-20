@@ -14,16 +14,16 @@ export default function WhereToFind() {
             </p>
             <div className="mt-6 flex gap-3">
               <Button href={SITE.whatsapp}>Falar no WhatsApp</Button>
-              <Button href="#contato" variant="ghost">Ver contatos</Button>
+              {/* <Button href="#contato" variant="ghost">Ver contatos</Button> */}
             </div>
           </div>
 
-          <div className="rounded-3xl border border-black/10 bg-[#fbf7f1] p-8">
+          {/* <div className="rounded-3xl border border-black/10 bg-[#fbf7f1] p-8">
             <p className="text-sm font-semibold">Atendimento</p>
             <p className="mt-2 text-sm text-black/70">
               Região, horários e pontos de venda podem ser listados aqui (vamos preencher com as infos da cliente).
             </p>
-          </div>
+          </div> */}
         </div>
       </Container>
     </section>
