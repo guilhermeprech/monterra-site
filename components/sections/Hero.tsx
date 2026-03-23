@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "../layout/Container";
 import Button from "../ui/Button";
 import { SITE } from "@/lib/constants";
@@ -22,47 +23,29 @@ export default function Hero() {
 
       <Container>
         <div className="relative py-24 md:py-28 text-center">
-          <h1 className="mx-auto mt-6 max-w-4xl text-5xl font-serif font-semibold leading-tight tracking-tight text-[var(--foreground)] md:text-7xl">
-            MONTERRA
-          </h1>
-
-          <p className="text-xs tracking-[0.35em] text-[var(--foreground)]/70">
-            PRODUTOS ARTESANAIS
-          </p>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[var(--foreground)]/85">
-           Queijos feitos com tradição e qualidade
-           na Serra Gaúcha.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center gap-4">
-
-          <div className="flex flex-wrap justify-center gap-4">
-
-              <Button href={SITE.whatsapp}>
-              WhatsApp
-              </Button>
-
-              <Button href={SITE.instagram}>
-              Instagram
-              </Button>
-
+          <div className="relative z-0 flex justify-center overflow-visible">
+            <Image
+              src="/images/logo-sem-fundo.png"
+              alt="Monterra Queijos Artesanais"
+              width={420}
+              height={220}
+              className="pointer-events-none h-auto w-[220px] object-contain scale-175 md:w-[300px] md:scale-200 lg:w-[360px] lg:scale-[2.25]"
+              priority
+            />
           </div>
 
-        <a
-            href="#historia"
-            className="text-sm font-medium text-[var(--foreground)]/75 underline underline-offset-4 decoration-[var(--green)]/40 hover:text-[var(--foreground)]"
-        >
-        Conhecer a história
-        </a>
-        </div>
+          <div className="relative z-10 mt-24 flex flex-col items-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button href={SITE.whatsapp}>WhatsApp</Button>
+              <Button href={SITE.instagram}>Instagram</Button>
+            </div>
 
-          <div className="mt-12 flex items-center justify-center gap-3">
-            <span className="h-[2px] w-12 bg-[var(--green)]/70" />
-            <span className="text-sm text-[var(--green-dark)]/70">
-              Campos de Cima da Serra
-            </span>
-            <span className="h-[2px] w-12 bg-[var(--green)]/70" />
+            <a
+              href="#historia"
+              className="text-sm font-medium text-[var(--foreground)]/75 underline underline-offset-4 decoration-[var(--green)]/40 hover:text-[var(--foreground)]"
+            >
+              Conhecer a história
+            </a>
           </div>
         </div>
       </Container>

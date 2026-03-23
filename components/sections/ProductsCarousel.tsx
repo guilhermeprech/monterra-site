@@ -2,7 +2,7 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const PRODUCTS = [
   {
@@ -23,10 +23,16 @@ const PRODUCTS = [
 ];
 
 export default function ProductsCarousel() {
+  const [mounted, setMounted] = useState(false);
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",
   });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -36,30 +42,27 @@ export default function ProductsCarousel() {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
+  if (!mounted) return null;
+
   return (
     <section id="queijos" className="bg-white py-28">
       <div className="mx-auto max-w-6xl px-6">
-
-        {/* Título */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif">
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl font-serif md:text-4xl">
             Linha de Queijos
           </h2>
         </div>
 
         <div className="relative">
-
           <div className="overflow-hidden px-6 md:px-16" ref={emblaRef}>
             <div className="flex">
-
               {PRODUCTS.map((product) => (
                 <div
                   key={product.name}
-                  className="min-w-0 flex-[0_0_85%] md:flex-[0_0_70%] px-4"
+                  className="min-w-0 flex-[0_0_85%] px-4 md:flex-[0_0_70%]"
                 >
                   <div className="flex flex-col items-center text-center">
-
-                    <div className="relative w-full h-[480px] md:h-[560px] lg:h-[600px] overflow-hidden rounded-xl shadow-sm">
+                    <div className="relative h-[480px] w-full overflow-hidden rounded-xl shadow-sm md:h-[560px] lg:h-[600px]">
                       <Image
                         src={product.image}
                         alt={product.name}
@@ -69,49 +72,33 @@ export default function ProductsCarousel() {
                       />
                     </div>
 
-                    <h3 className="mt-8 text-2xl md:text-3xl font-serif">
+                    <h3 className="mt-8 text-2xl font-serif md:text-3xl">
                       {product.name}
                     </h3>
 
-                    <p className="mt-4 text-sm md:text-base text-[var(--foreground)]/70 max-w-lg">
+                    <p className="mt-4 max-w-lg text-sm text-[var(--foreground)]/70 md:text-base">
                       {product.desc}
                     </p>
-
                   </div>
                 </div>
               ))}
-
             </div>
           </div>
 
-          {/* Botão anterior */}
           <button
             onClick={scrollPrev}
-            className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 z-10
-                       h-16 w-16 rounded-full
-                       bg-white/95 backdrop-blur
-                       flex items-center justify-center
-                       text-4xl text-[var(--foreground)]
-                       shadow-lg transition hover:scale-105"
+            className="absolute left-4 top-1/2 z-10 flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 backdrop-blur text-4xl text-[var(--foreground)] shadow-lg transition hover:scale-105 md:left-10"
           >
             ‹
           </button>
 
-          {/* Botão próximo */}
           <button
             onClick={scrollNext}
-            className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 z-10
-                       h-16 w-16 rounded-full
-                       bg-white/95 backdrop-blur
-                       flex items-center justify-center
-                       text-4xl text-[var(--foreground)]
-                       shadow-lg transition hover:scale-105"
+            className="absolute right-4 top-1/2 z-10 flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 backdrop-blur text-4xl text-[var(--foreground)] shadow-lg transition hover:scale-105 md:right-10"
           >
             ›
           </button>
-
         </div>
-
       </div>
     </section>
   );

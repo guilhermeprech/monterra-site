@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Container from "./Container";
 import { NAV } from "@/lib/constants";
-import Image from "next/image";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -12,23 +11,9 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-[var(--gold)]/40 bg-[var(--foreground)]/95 backdrop-blur">
 
       <Container>
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-center md:justify-between">
 
-          {/* Logo */}
-          <a href="#" className="flex items-center">
-            <div className="h-11 w-11 rounded-full overflow-hidden border border-white/30 transition hover:scale-105 duration-300">
-              <Image
-                src="/brand/logo.png"
-                alt="Monterra Queijos"
-                width={44}
-                height={44}
-                className="h-full w-full object-cover"
-                priority
-              />
-            </div>
-          </a>
-
-          {/* Desktop Nav (centralizado) */}
+          {/* Desktop Nav (centralizado absoluto) */}
           <nav className="absolute left-1/2 -translate-x-1/2 hidden items-center gap-8 md:flex">
             {NAV.map((item) => (
               <a
@@ -41,10 +26,10 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Botão Hamburger (mobile) */}
+          {/* Botão Hamburger (mobile - direita) */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-white text-2xl transition"
+            className="ml-auto md:hidden text-white text-2xl transition"
           >
             {open ? "✕" : "☰"}
           </button>
