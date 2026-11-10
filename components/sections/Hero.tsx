@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SITE } from "@/lib/constants";
-import casca from "@/public/images/site/casca-trancada.jpg";
+import HeroVideo from "./HeroVideo";
 import selo from "@/public/images/site/monterra-selo.png";
 
 export default function Hero() {
@@ -11,16 +11,9 @@ export default function Hero() {
       aria-label="Apresentação"
       className="relative isolate h-(--hero-height) overflow-hidden bg-forest-950 text-cream"
     >
+      {/* Fundo: vídeo da propriedade (pôster + vídeo em components/sections/HeroVideo.tsx) */}
       <div className="hero-photo absolute inset-0 -z-20">
-        <Image
-          src={casca}
-          alt="Queijos Monterra em maturação, com o desenho trançado da forma marcado na casca"
-          fill
-          preload
-          placeholder="blur"
-          sizes="100vw"
-          className="object-cover object-(--hero-photo-pos)"
-        />
+        <HeroVideo />
       </div>
 
       <div

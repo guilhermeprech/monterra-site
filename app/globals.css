@@ -50,8 +50,8 @@
   --hero-logo-y: 0.45;     /* vertical, fração da altura do hero (0 topo · 1 base) */
 
   /* Fotografia */
-  --hero-photo-pos: 42% 50%;  /* object-position */
-  --hero-overlay: 0.4;        /* opacidade da camada verde (0 – 1) */
+  --hero-photo-pos: 50% 50%;  /* enquadramento do vídeo/pôster (object-position) */
+  --hero-overlay: 0.45;       /* opacidade da camada verde (0 – 1) */
 
   /* Rodapé do hero (textos e link) — distância da base */
   --hero-cta-bottom: clamp(1.75rem, 5svh, 3rem);
@@ -76,7 +76,7 @@
 @media (min-width: 1280px) {
   :root {
     --hero-logo-w: 560px;
-    --hero-overlay: 0.36;
+    --hero-overlay: 0.42;
   }
 }
 
