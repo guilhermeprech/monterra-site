@@ -1,54 +1,57 @@
 import Image from "next/image";
-import Container from "../layout/Container";
-import Button from "../ui/Button";
 import { SITE } from "@/lib/constants";
+import casca from "@/public/images/site/casca-trancada.jpg";
+import selo from "@/public/images/site/monterra-selo.png";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero.jpg')" }}
-        aria-hidden="true"
-      />
+    <section
+      id="inicio"
+      data-tone="dark"
+      aria-label="Apresentação"
+      className="relative isolate h-(--hero-height) overflow-hidden bg-forest-950 text-cream"
+    >
+      <div className="hero-photo absolute inset-0 -z-20">
+        <Image
+          src={casca}
+          alt="Queijos Monterra em maturação, com o desenho trançado da forma marcado na casca"
+          fill
+          preload
+          placeholder="blur"
+          sizes="100vw"
+          className="object-cover object-(--hero-photo-pos)"
+        />
+      </div>
 
       <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(255,255,255,0.60) 0%, rgba(255,255,255,0.40) 45%, rgba(255,255,255,0.72) 100%)",
-        }}
         aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-forest-950 opacity-(--hero-overlay)"
       />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_45%,transparent_30%,rgba(18,27,20,0.55)_100%)]"
+      />
+      <h1 className="pointer-events-none absolute left-(--hero-logo-x) top-[calc(var(--hero-height)*var(--hero-logo-y))] w-(--hero-logo-w) -translate-x-1/2 -translate-y-1/2">
+        <Image
+          src={selo}
+          alt={SITE.fullName}
+          preload
+          sizes="(min-width: 1280px) 560px, (min-width: 768px) 54vw, 82vw"
+          className="h-auto w-full drop-shadow-[0_24px_48px_rgba(8,14,9,0.45)]"
+        />
+      </h1>
 
-      <Container>
-        <div className="relative py-24 md:py-28 text-center">
-          <div className="relative z-0 flex justify-center overflow-visible">
-            <Image
-              src="/images/logo-sem-fundo.png"
-              alt="Monterra Queijos Artesanais"
-              width={420}
-              height={220}
-              className="pointer-events-none h-auto w-[220px] object-contain scale-175 md:w-[300px] md:scale-200 lg:w-[360px] lg:scale-[2.25]"
-              priority
-            />
-          </div>
-
-          <div className="relative z-10 mt-24 flex flex-col items-center gap-4">
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button href={SITE.whatsapp}>WhatsApp</Button>
-              <Button href={SITE.instagram}>Instagram</Button>
-            </div>
-
-            <a
-              href="#historia"
-              className="text-sm font-medium text-[var(--foreground)]/75 underline underline-offset-4 decoration-[var(--green)]/40 hover:text-[var(--foreground)]"
-            >
-              Conhecer a história
-            </a>
-          </div>
+      <div className="hero-rise absolute inset-x-0 bottom-(--hero-cta-bottom)">
+        <div className="container-site flex justify-center">
+          <a
+            href="#historia"
+            className="flex flex-col items-center p-3 text-cream/70 transition-colors hover:text-cream"
+          >
+            <span className="sr-only">Conheça a Monterra</span>
+            <span aria-hidden="true" className="scroll-cue relative block h-10 w-px bg-cream/25" />
+          </a>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

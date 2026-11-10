@@ -1,45 +1,60 @@
-import Container from "./Container";
-import { SITE } from "@/lib/constants";
+import Image from "next/image";
+import { NAV, SITE } from "@/lib/constants";
+import logo from "@/public/images/site/monterra-selo.png";
 
 export default function Footer() {
   return (
-    <footer id="contato" className="border-t border-black/10 bg-white">
-      <Container>
-        <div className="py-10 grid gap-6 md:grid-cols-3">
-          <div>
-            <p className="text-sm font-semibold">{SITE.name}</p>
-            <p className="mt-2 text-sm text-black/70">
-              Queijos artesanais com cuidado em cada etapa — da seleção à maturação.
-            </p>
-          </div>
+    <footer data-tone="dark" className="grain bg-forest-950 text-cream">
+      <div className="container-site pt-20 pb-10 md:pt-28">
+        <div className="flex flex-col items-center text-center">
+          <Image
+            src={logo}
+            alt={SITE.fullName}
+            sizes="320px"
+            className="h-auto w-[200px] md:w-[240px]"
+          />
+          <p className="mt-8 font-display text-[0.8125rem] tracking-[0.16em] text-cream/60">
+            Queijos artesanais da {SITE.region}
+          </p>
+        </div>
 
-          <div>
-            <p className="text-sm font-semibold">Contato</p>
-            <div className="mt-2 grid gap-2 text-sm">
-              <a className="text-black/70 hover:text-black" href={SITE.whatsapp}>
+        <nav aria-label="Rodapé" className="mt-14">
+          <ul className="flex flex-wrap justify-center gap-x-10 gap-y-3 font-display text-[0.8125rem] tracking-[0.14em]">
+            {NAV.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} className="text-cream/70 transition-colors hover:text-cream">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="text-cream/70 transition-colors hover:text-cream">
                 WhatsApp
               </a>
-              <a className="text-black/70 hover:text-black" href={SITE.instagram}>
+            </li>
+            <li>
+              <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="text-cream/70 transition-colors hover:text-cream">
                 Instagram
               </a>
-              {/* <a className="text-black/70 hover:text-black" href={`mailto:${SITE.email}`}>
-                {SITE.email}
-              </a> */}
-            </div>
-          </div>
+            </li>
+          </ul>
+        </nav>
 
-          <div className="md:text-right">
-            <p className="text-sm text-black/60">
-              © {new Date().getFullYear()} {SITE.name}
-            </p>
-            <p className="mt-2 text-xs text-black/50">
-              Desenvolvido por Guilherme Rech
-              <br />
-              Desenvolvimento de soluções digitais sob medida. 
-            </p>
-          </div>
+        <div className="mt-16 flex flex-col items-center gap-2 border-t border-cream/10 pt-8 text-sm text-cream/60 md:flex-row md:justify-between">
+          <p>© {new Date().getFullYear()} {SITE.fullName}</p>
+          <p>
+            Desenvolvido por{" "}
+            <a
+              href="https://www.g9code.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cream/80 underline-offset-4 transition-colors hover:text-cream hover:underline"
+            >
+              G9Code
+            </a>
+          </p>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }
